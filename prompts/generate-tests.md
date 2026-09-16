@@ -10,6 +10,8 @@ AI assistants capable of analyzing code and generating tests through text instru
 
 ## Usage
 
+For a repository-based workflow that identifies the behavioral contract and runs the resulting tests, use the [Generate tests skill](../skills/generate-tests/SKILL.md).
+
 Replace `[TESTING FRAMEWORK]` with the project's testing framework and `[PASTE THE FUNCTION]` with the function you want to test. Copy the following prompt into the assistant along with the relevant context.
 
 ## Prompt

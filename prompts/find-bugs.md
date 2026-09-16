@@ -10,6 +10,8 @@ AI assistants capable of analyzing code through text instructions. Requires the 
 
 ## Usage
 
+For an evidence-based investigation with reproduction and verification of requested fixes, use the [Find bugs skill](../skills/find-bugs/SKILL.md).
+
 Replace `[PASTE YOUR CODE]` with the code you want to analyze and copy the following prompt into the assistant.
 
 ## Prompt
