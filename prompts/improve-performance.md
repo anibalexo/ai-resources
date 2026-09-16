@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Identify performance problems in code, rank them by impact, and propose simple optimizations with targeted changes.
+Identify potential performance bottlenecks, distinguish measurements from hypotheses, and propose simple optimizations with targeted changes and a verification approach.
 
 ## Compatibility and requirements
 
@@ -28,11 +28,18 @@ Pay particular attention to:
 - memory usage
 - unnecessary complexity
 
-Rank the problems by impact:
-HIGH / MEDIUM / LOW.
+Separate bottlenecks supported by supplied measurements from suspected ones.
+Explain the evidence and relevant workload for each finding.
+Rank expected impact as HIGH / MEDIUM / LOW and explain the ranking.
+When measurements are missing, label the ranking provisional and state what
+to measure. Do not invent speedups or treat a loop or query as a bottleneck
+without explaining why it matters for the workload.
 
 Then propose the simplest possible optimization and show
 only the code you would change.
+Preserve behavior and describe how to compare before and after under the
+same conditions. Do not claim an improvement was measured unless it was.
+If no useful optimization is supported, say so.
 
 Code:
 [PASTE YOUR CODE]
@@ -40,6 +47,6 @@ Code:
 
 ## Expected output
 
-A list of problems classified as HIGH, MEDIUM, or LOW impact, followed by the simplest possible optimization and only the code that would change. Verify improvements with comparable measurements before and after, and check that the expected behavior is preserved.
+Findings with measured or suspected status, justified impact rankings marked provisional when needed, and focused proposed optimizations. Include comparable before-and-after measurement steps and behavior checks. Distinguish actual results from verification that remains to be performed.
 
 [Back to catalog](README.md)
