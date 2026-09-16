@@ -36,6 +36,8 @@ Keep shared project context in `docs/project.md`, architecture in `docs/architec
 
 ## Write what readers need
 
+When creating a dedicated usage guide without an established project template, start from [assets/usage-template.md](assets/usage-template.md). Adapt it to the intended reader and the project's documentation language. Replace every `{{placeholder}}`, remove authoring comments and inapplicable optional sections, and verify links relative to the output location. Update existing guides in place rather than imposing the template on them. Do not create a new guide solely to fill the template.
+
 Start with the capability, who uses it, and how to use it. Include the following only where relevant:
 
 - Prerequisites, permissions, and required configuration.

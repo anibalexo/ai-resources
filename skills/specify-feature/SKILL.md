@@ -17,6 +17,8 @@ If a request bundles independently testable capabilities, propose a small capabi
 
 Respect explicit project paths. Otherwise use `docs/features/<feature>/spec.md`, reusing an existing stable kebab-case feature id. Link it from `docs/README.md`. Create only needed documents; do not migrate existing files unless requested.
 
+For a new specification without an established project template, start from [assets/spec-template.md](assets/spec-template.md). Adapt it to the requested scope and the project's documentation language; replace every `{{placeholder}}`, remove authoring comments and inapplicable optional sections, and resolve links relative to the output document. Preserve the structure of existing specifications when updating them rather than overwriting them with the template.
+
 Include the objective, scope, observable behavior, relevant interfaces and business rules, constraints, acceptance criteria, assumptions, and open questions. Give acceptance criteria stable ids such as `AC-01` so tasks and tests can refer to them. Include relevant failure cases and permissions. Propose measurable targets when useful, but do not invent agreed business rules or performance requirements.
 
 Reference shared stack, commands, structure, style, and testing conventions in `docs/project.md` or `docs/guides/development.md` when available. Record only feature-specific differences in the spec. Verify commands against the repository instead of copying generic examples. Keep architecture-wide material in the existing architecture documentation, defaulting to `docs/architecture/overview.md` and `docs/architecture/decisions/` when needed.

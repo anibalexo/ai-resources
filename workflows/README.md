@@ -22,5 +22,6 @@ Prepare the requirements and follow the steps in order. Check the result of each
 
 - [Plan a feature](plan-feature.md): produces the specification and technical plan under `docs/features/<feature>/`, stopping before task breakdown or code changes.
 - [Implement a feature](implement-feature.md): connects specification, technical planning, tasks, implementation, verification, and documentation under `docs/features/<feature>/`.
+- [Fix a bug](fix-bug.md): coordinates reproduction, diagnosis, regression coverage, a focused correction, and verification.
 
 [Back to index](../README.md)

@@ -66,6 +66,8 @@ For schema changes, include the migration strategy, treatment of existing record
 
 ## 5. Save and deliver the plan
 
+For a new plan without an established project template, use [assets/plan-template.md](assets/plan-template.md). Adapt its length and language to the project, replace every `{{placeholder}}`, and remove authoring comments and inapplicable optional sections. Keep explicit no-change statements where required, including when models do not change. Resolve links from the final document's location. For an existing plan, preserve its useful structure and decisions instead of replacing it with the template.
+
 Respect the location specified by the user or repository. In the absence of another convention, use `docs/features/<feature>/plan.md`, with a stable kebab-case feature id. Read that folder's `spec.md` when present and link its acceptance criteria without duplicating the specification. Update an existing plan for the same scope instead of creating duplicates, preserving prior decisions that remain valid.
 
 If the scope includes task breakdown, save tasks in `docs/features/<feature>/tasks.md`, including acceptance criteria, affected files, dependencies, and verification for each task. Keep technical sequencing and decisions in `plan.md`; execution status belongs in `tasks.md`. Link created documents from `docs/README.md`. Create only necessary files. Do not move existing documentation unless adopting or migrating paths is part of the request.

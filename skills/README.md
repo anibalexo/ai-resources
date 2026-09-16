@@ -31,7 +31,9 @@ Saving a skill here does not automatically install or activate it.
 
 ## Install in Codex
 
-Copy the complete folder of each desired skill into `$CODEX_HOME/skills`, or `~/.codex/skills` when `CODEX_HOME` is unset. Keep each `SKILL.md` inside its named folder. Installed copies must be updated separately when this repository changes.
+The documentation skills include optional starting templates: [specification](specify-feature/assets/spec-template.md), [implementation plan](plan-implementation/assets/plan-template.md), and [usage guide](document-features/assets/usage-template.md). Each skill explains when to use its template. Keep the `assets/` folders when installing; the resource installer copies them with their skills. The templates contain authoring placeholders, while [worked examples](../docs/examples/README.md) show developed documents.
+
+For project-scoped installation, use the [resource installer](../scripts/README.md) to copy selected skills into `<project>/.agents/skills/` and install workflows with adjusted links. For manual personal installation, copy complete skill folders into `~/.agents/skills/`. Keep each `SKILL.md` inside its named folder. These discovery locations follow the [official skill documentation](https://learn.chatgpt.com/docs/build-skills). Installed copies must be updated separately when this repository changes.
 
 Invoke a skill with `$specify-feature`, `$optimize-performance`, `$generate-tests`, `$debug-code`, `$plan-implementation`, or `$document-features` and describe the task and relevant code. Their descriptions also allow automatic selection for matching tasks. See each skill for its instructions and requirements.
 

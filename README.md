@@ -8,6 +8,10 @@ Reusable prompts, skills, and workflows for specifying, planning, implementing, 
 | --- | --- |
 | Specify and plan a feature without changing code | [Plan a feature](workflows/plan-feature.md) |
 | Implement a feature from scratch or resume an existing plan | [Implement a feature](workflows/implement-feature.md) |
+| Reproduce, fix, and verify a reported defect | [Fix a bug](workflows/fix-bug.md) |
+| Install resources into another project | [Resource installer](scripts/README.md#install-or-update-resources) |
+| Check resource metadata and local links | [Resource validator](scripts/README.md#validate-resources) |
+| See a complete documentation example | [Order history example](docs/examples/order-history/README.md) |
 | Define requirements and acceptance criteria | [Specify feature](skills/specify-feature/SKILL.md) |
 | Prepare a technical implementation plan | [Plan implementation](skills/plan-implementation/SKILL.md) |
 | Create and run meaningful tests | [Generate tests](skills/generate-tests/SKILL.md) |
@@ -48,6 +52,14 @@ The planning workflow stops at `spec.md` and `plan.md`. The implementation workf
 Choose a focused prompt or skill for a small task. Use a workflow when the work benefits from coordinated specification, planning, implementation, and verification.
 
 ## Installation
+
+To install skills and workflows into an existing project, preview first:
+
+```powershell
+.\scripts\install-resources.ps1 -TargetPath 'C:\Projects\My App' -WhatIf
+```
+
+Remove `-WhatIf` to install. The installer requires Python 3.10+, protects customized files, and leaves proposed `AGENTS.md` instructions for review. See [installation and update options](scripts/README.md#install-or-update-resources), including the Python entry point for systems that block PowerShell scripts.
 
 No dependencies are required to read this repository. For Codex skills, follow the [installation instructions](skills/README.md#install-in-codex), then invoke the desired skill, for example:
 
@@ -91,7 +103,7 @@ Use a stable kebab-case feature id and create only the documents needed for the 
 | [docs](docs/README.md) | Guides and conventions for reusing these resources | Resources available |
 | [agents](agents/README.md) | Agent definitions and configurations | No resources added yet |
 | [rules](rules/README.md) | Reusable project and assistant rules | No resources added yet |
-| [scripts](scripts/README.md) | Executable automations | No resources added yet |
+| [scripts](scripts/README.md) | Installation and resource validation | Resources available |
 
 Search from the repository root with ripgrep:
 
@@ -101,6 +113,15 @@ rg -n "keyword" prompts skills agents rules workflows scripts docs
 ```
 
 ## Contributing
+
+Before submitting changes, run:
+
+```text
+python scripts/validate-resources.py
+python -m unittest discover -s scripts/tests -v
+```
+
+The [validation workflow](.github/workflows/validate.yml) runs these checks on Linux and Windows in GitHub Actions.
 
 - Save resources in the appropriate category using descriptive kebab-case names, preserving tool conventions such as `SKILL.md`.
 - Explain purpose, compatibility, requirements, usage, and expected output.
