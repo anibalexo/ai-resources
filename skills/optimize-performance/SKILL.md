@@ -1,9 +1,9 @@
 ---
-name: improve-performance
+name: optimize-performance
 description: Diagnose code performance bottlenecks and verify targeted optimizations with comparable measurements. Use for slow requests, excessive database queries, repeated work or renders, high memory usage, and explicit performance reviews. Not for general refactoring or feature implementation without a performance objective.
 ---
 
-# Improve performance
+# Optimize performance
 
 Find the work responsible for a performance problem, make the smallest useful optimization within the requested scope, and report evidence of its effect while preserving behavior.
 
@@ -57,4 +57,4 @@ Report no actionable bottleneck when that is what the evidence supports. Do not 
 
 Designed for Codex with access to the relevant repository and permission to run its local diagnostics. No bundled scripts or extra packages are required; execution depends on the target project's runtime and tools. Static reviews also work with supplied code and context.
 
-Example: "Use $improve-performance to investigate the slow search endpoint with 10,000 records. Measure a local baseline, implement the smallest useful optimization, and compare latency and query count while preserving response behavior."
+Example: "Use $optimize-performance to investigate the slow search endpoint with 10,000 records. Measure a local baseline, implement the smallest useful optimization, and compare latency and query count while preserving response behavior."

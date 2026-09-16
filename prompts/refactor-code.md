@@ -15,8 +15,7 @@ Replace `[LANGUAGE/FRAMEWORK]` with the project's technology and `[PASTE YOUR CO
 ## Prompt
 
 ```text
-Refactor this code while preserving exactly
-the same behavior.
+Refactor this code while preserving exactly the same behavior.
 
 Prioritize:
 - readability

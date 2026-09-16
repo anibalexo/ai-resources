@@ -22,14 +22,23 @@ Saving a skill here does not automatically install or activate it.
 
 ## Catalog
 
-- [Improve performance](improve-performance/SKILL.md): diagnoses bottlenecks, distinguishes measurements from hypotheses, and verifies targeted optimizations while preserving behavior. Designed for Codex; uses the target project's runtime and diagnostic tools.
+- [Specify feature](specify-feature/SKILL.md): defines feature scope, expected behavior, and verifiable acceptance criteria in specifications using `docs/features/<feature>/`. Designed for Codex with repository access.
+- [Optimize performance](optimize-performance/SKILL.md): diagnoses bottlenecks, distinguishes measurements from hypotheses, and verifies targeted optimizations while preserving behavior. Designed for Codex; uses the target project's runtime and diagnostic tools.
 - [Generate tests](generate-tests/SKILL.md): derives meaningful cases from expected behavior, follows the project's testing conventions, and reports actual execution results. Designed for Codex; uses the target project's test framework and runtime.
-- [Find bugs](find-bugs/SKILL.md): investigates root causes, separates reproduced defects from hypotheses, and verifies targeted fixes when requested. Designed for Codex; uses the target project's runtime and test tools when reproduction is available.
+- [Debug code](debug-code/SKILL.md): investigates root causes, separates reproduced defects from hypotheses, and verifies targeted fixes when requested. Designed for Codex; uses the target project's runtime and test tools when reproduction is available.
+- [Plan implementation](plan-implementation/SKILL.md): creates technical implementation plans grounded in the existing code, including scope, design alternatives, affected files and model attributes, and validation. Designed for Codex with repository access.
+- [Document features](document-features/SKILL.md): maintains usage guides, API references, and other affected documentation as features are added or changed, verifying claims against the implementation. Designed for Codex with repository access; uses existing documentation tooling when available.
 
 ## Install in Codex
 
 Copy the complete folder of each desired skill into `$CODEX_HOME/skills`, or `~/.codex/skills` when `CODEX_HOME` is unset. Keep each `SKILL.md` inside its named folder. Installed copies must be updated separately when this repository changes.
 
-Invoke a skill with `$improve-performance`, `$generate-tests`, or `$find-bugs` and describe the task and relevant code. Their descriptions also allow automatic selection for matching tasks. See each skill for a complete example and requirements.
+Invoke a skill with `$specify-feature`, `$optimize-performance`, `$generate-tests`, `$debug-code`, `$plan-implementation`, or `$document-features` and describe the task and relevant code. Their descriptions also allow automatic selection for matching tasks. See each skill for its instructions and requirements.
+
+The feature skills share the [documentation structure](../docs/documentation-structure.md). Use [Implement a feature](../workflows/implement-feature.md) to connect them into one procedure. Repository renames do not update installed copies. Review existing installations and local customizations when adopting these names.
+
+For example: "Use $plan-implementation to plan order history for this project, including affected files, model changes, and validation."
+
+To keep documentation aligned during development: "Implement order history and use $document-features to update the relevant documentation before finishing."
 
 [Back to index](../README.md)

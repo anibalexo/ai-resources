@@ -10,7 +10,7 @@ AI assistants capable of analyzing code through text instructions. Requires the 
 
 ## Usage
 
-For a repository-based workflow with baseline measurements and verification, use the [Improve performance skill](../skills/improve-performance/SKILL.md).
+For a repository-based workflow with baseline measurements and verification, use the [Optimize performance skill](../skills/optimize-performance/SKILL.md).
 
 Replace `[PASTE YOUR CODE]` with the code you want to analyze and copy the following prompt into the assistant along with the relevant context.
 

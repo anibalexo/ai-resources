@@ -19,6 +19,8 @@ Use the guides to help select or adapt resources. Check that instructions tied t
 
 ## Catalog
 
-No additional documents have been added yet. The repository's scope is in [SPEC.md](../SPEC.md).
+- [Project documentation structure](documentation-structure.md): shared paths and maintenance conventions for feature specifications, plans, tasks, and usage guides.
+
+The repository's scope is in [SPEC.md](../SPEC.md).
 
 [Back to index](../README.md)

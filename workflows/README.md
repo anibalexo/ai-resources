@@ -20,6 +20,7 @@ Prepare the requirements and follow the steps in order. Check the result of each
 
 ## Catalog
 
-No workflows have been added yet. Add a link here for each new resource.
+- [Plan a feature](plan-feature.md): produces the specification and technical plan under `docs/features/<feature>/`, stopping before task breakdown or code changes.
+- [Implement a feature](implement-feature.md): connects specification, technical planning, tasks, implementation, verification, and documentation under `docs/features/<feature>/`.
 
 [Back to index](../README.md)

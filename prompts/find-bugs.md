@@ -10,15 +10,14 @@ AI assistants capable of analyzing code through text instructions. Requires the 
 
 ## Usage
 
-For an evidence-based investigation with reproduction and verification of requested fixes, use the [Find bugs skill](../skills/find-bugs/SKILL.md).
+For an evidence-based investigation with reproduction and verification of requested fixes, use the [Debug code skill](../skills/debug-code/SKILL.md).
 
 Replace `[PASTE YOUR CODE]` with the code you want to analyze and copy the following prompt into the assistant.
 
 ## Prompt
 
 ```text
-Act as a senior developer specializing
-in debugging.
+Act as a senior developer specializing in debugging.
 
 Analyze this code and find:
 - logic errors

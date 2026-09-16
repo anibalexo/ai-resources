@@ -1,9 +1,9 @@
 ---
-name: find-bugs
+name: debug-code
 description: Investigate suspected code defects or review code for actionable bugs using execution paths, reproducible cases, and evidence of root causes. Use for incorrect results, exceptions, broken edge cases, or explicit bug reviews, with targeted fixes when requested. Not for general style cleanup, architecture review, or performance optimization without a correctness defect.
 ---
 
-# Find bugs
+# Debug code
 
 Identify actionable defects, explain their triggering conditions and root causes, and verify focused corrections when implementation is requested.
 
@@ -51,4 +51,4 @@ Lead with the actionable findings or verified fix. Include evidence status, code
 
 Designed for Codex with access to relevant code and, for reproduction, the project's runtime and test tools. No bundled scripts or additional packages are required by this skill. Supplied snippets support a more limited static review.
 
-Example: "Use $find-bugs to investigate why submitting the checkout form twice creates two orders. Trace the cause, reproduce it locally, apply a focused fix, and verify it with a regression test."
+Example: "Use $debug-code to investigate why submitting the checkout form twice creates two orders. Trace the cause, reproduce it locally, apply a focused fix, and verify it with a regression test."

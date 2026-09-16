@@ -17,8 +17,7 @@ Replace `[TESTING FRAMEWORK]` with the project's testing framework and `[PASTE T
 ## Prompt
 
 ```text
-Analyze this function as if you were responsible
-for QA and development.
+Analyze this function as if you were responsible for QA and development.
 
 Generate tests for:
 - expected behavior
