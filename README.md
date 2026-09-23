@@ -103,7 +103,7 @@ Use a stable kebab-case feature id and create only the documents needed for the 
 | [workflows](workflows/README.md) | Planning and implementation procedures | Resources available |
 | [docs](docs/README.md) | Guides and conventions for reusing these resources | Resources available |
 | [agents](agents/README.md) | Agent definitions and configurations | No resources added yet |
-| [rules](rules/README.md) | Reusable project and assistant rules | No resources added yet |
+| [rules](rules/README.md) | Reusable project and assistant rules | Resources available |
 | [scripts](scripts/README.md) | Installation and resource validation | Resources available |
 
 Search from the repository root with ripgrep:
