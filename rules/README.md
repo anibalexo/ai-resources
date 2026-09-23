@@ -19,6 +19,8 @@ Select the relevant rules, adapt them to the project, and check that they are co
 
 ## Catalog
 
-No rules have been added yet. Add a link here for each new resource.
+- [Django best practices](django-best-practices.md): N+1 query prevention, service layer architecture, safe transactions, and migration standards for Django and DRF projects.
+- [Git conventions](git-conventions.md): Conventional Commits standards, branch naming conventions, atomic commits, and repository hygiene.
+- [Security and data protection](security.md): Defensive coding rules, zero hardcoded credentials, injection prevention, PII protection, and access control.
 
 [Back to index](../README.md)
