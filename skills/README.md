@@ -27,6 +27,7 @@ Saving a skill here does not automatically install or activate it.
 - [Generate tests](generate-tests/SKILL.md): derives meaningful cases from expected behavior, follows the project's testing conventions, and reports actual execution results. Designed for Codex; uses the target project's test framework and runtime.
 - [Debug code](debug-code/SKILL.md): investigates root causes, separates reproduced defects from hypotheses, and verifies targeted fixes when requested. Designed for Codex; uses the target project's runtime and test tools when reproduction is available.
 - [Plan implementation](plan-implementation/SKILL.md): creates technical implementation plans grounded in the existing code, including scope, design alternatives, affected files and model attributes, and validation. Designed for Codex with repository access.
+- [Implement code](implement-code/SKILL.md): applies clean code practices, early return (guard clauses), readability, and maintainable structure when implementing features or tasks. Designed for Codex with repository access.
 - [Document features](document-features/SKILL.md): maintains usage guides, API references, and other affected documentation as features are added or changed, verifying claims against the implementation. Designed for Codex with repository access; uses existing documentation tooling when available.
 
 ## Install in Codex
@@ -35,7 +36,7 @@ The documentation skills include optional starting templates: [specification](sp
 
 For project-scoped installation, use the [resource installer](../scripts/README.md) to copy selected skills into `<project>/.agents/skills/` and install workflows with adjusted links. For manual personal installation, copy complete skill folders into `~/.agents/skills/`. Keep each `SKILL.md` inside its named folder. These discovery locations follow the [official skill documentation](https://learn.chatgpt.com/docs/build-skills). Installed copies must be updated separately when this repository changes.
 
-Invoke a skill with `$specify-feature`, `$optimize-performance`, `$generate-tests`, `$debug-code`, `$plan-implementation`, or `$document-features` and describe the task and relevant code. Their descriptions also allow automatic selection for matching tasks. See each skill for its instructions and requirements.
+Invoke a skill with `$specify-feature`, `$optimize-performance`, `$generate-tests`, `$debug-code`, `$plan-implementation`, `$implement-code`, or `$document-features` and describe the task and relevant code. Their descriptions also allow automatic selection for matching tasks. See each skill for its instructions and requirements.
 
 The feature skills share the [documentation structure](../docs/documentation-structure.md). Use [Implement a feature](../workflows/implement-feature.md) to connect them into one procedure. Repository renames do not update installed copies. Review existing installations and local customizations when adopting these names.
 
