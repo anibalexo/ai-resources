@@ -14,6 +14,7 @@ Reusable prompts, skills, and workflows for specifying, planning, implementing, 
 | See a complete documentation example | [Order history example](docs/examples/order-history/README.md) |
 | Define requirements and acceptance criteria | [Specify feature](skills/specify-feature/SKILL.md) |
 | Prepare a technical implementation plan | [Plan implementation](skills/plan-implementation/SKILL.md) |
+| Implement clean and maintainable code | [Implement code](skills/implement-code/SKILL.md) |
 | Create and run meaningful tests | [Generate tests](skills/generate-tests/SKILL.md) |
 | Investigate bugs and verify requested fixes | [Debug code](skills/debug-code/SKILL.md) |
 | Measure and optimize performance | [Optimize performance](skills/optimize-performance/SKILL.md) |
