@@ -29,6 +29,8 @@ Saving a skill here does not automatically install or activate it.
 - [Plan implementation](plan-implementation/SKILL.md): creates technical implementation plans grounded in the existing code, including scope, design alternatives, affected files and model attributes, and validation. Designed for Codex with repository access.
 - [Implement code](implement-code/SKILL.md): applies clean code practices, early return (guard clauses), readability, and maintainable structure when implementing features or tasks. Designed for Codex with repository access.
 - [Document features](document-features/SKILL.md): maintains usage guides, API references, and other affected documentation as features are added or changed, verifying claims against the implementation. Designed for Codex with repository access; uses existing documentation tooling when available.
+- [Django expert](django-expert/SKILL.md): provides architecture guidance, ORM optimization, DRF best practices, testing strategies, and security standards for Django applications.
+- [Django safe migration](django-safe-migration/SKILL.md): guides zero-downtime database migrations, safe column additions, backwards compatibility, and concurrent indexing in Django.
 
 ## Install in Codex
 
