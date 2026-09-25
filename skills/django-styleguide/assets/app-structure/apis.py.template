@@ -1,0 +1,105 @@
+from rest_framework import serializers, status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .selectors import example_item_detail, example_item_list
+from .services import example_item_create, example_item_update
+
+
+class ExampleItemListApi(APIView):
+    """
+    List and filter ExampleItems.
+    """
+    class FilterSerializer(serializers.Serializer):
+        search = serializers.CharField(required=False, allow_null=True)
+        is_active = serializers.BooleanField(required=False, allow_null=True)
+
+    class OutputSerializer(serializers.Serializer):
+        id = serializers.IntegerField()
+        title = serializers.CharField()
+        description = serializers.CharField()
+        is_active = serializers.BooleanField()
+        start_date = serializers.DateField()
+        end_date = serializers.DateField()
+        created_at = serializers.DateTimeField()
+
+    def get(self, request):
+        filter_serializer = self.FilterSerializer(data=request.query_params)
+        filter_serializer.is_valid(raise_exception=True)
+
+        items = example_item_list(filters=filter_serializer.validated_data)
+        data = self.OutputSerializer(items, many=True).data
+
+        return Response(data, status=status.HTTP_200_OK)
+
+
+class ExampleItemCreateApi(APIView):
+    """
+    Create a new ExampleItem.
+    """
+    class InputSerializer(serializers.Serializer):
+        title = serializers.CharField(max_length=255)
+        description = serializers.CharField(required=False, default="")
+        is_active = serializers.BooleanField(required=False, default=True)
+        start_date = serializers.DateField()
+        end_date = serializers.DateField()
+
+    class OutputSerializer(serializers.Serializer):
+        id = serializers.IntegerField()
+        title = serializers.CharField()
+        is_active = serializers.BooleanField()
+        start_date = serializers.DateField()
+        end_date = serializers.DateField()
+
+    def post(self, request):
+        serializer = self.InputSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        item = example_item_create(**serializer.validated_data)
+        data = self.OutputSerializer(item).data
+
+        return Response(data, status=status.HTTP_201_CREATED)
+
+
+class ExampleItemDetailApi(APIView):
+    """
+    Retrieve details of an ExampleItem.
+    """
+    class OutputSerializer(serializers.Serializer):
+        id = serializers.IntegerField()
+        title = serializers.CharField()
+        description = serializers.CharField()
+        is_active = serializers.BooleanField()
+        start_date = serializers.DateField()
+        end_date = serializers.DateField()
+
+    def get(self, request, item_id: int):
+        item = example_item_detail(item_id=item_id)
+        data = self.OutputSerializer(item).data
+        return Response(data, status=status.HTTP_200_OK)
+
+
+class ExampleItemUpdateApi(APIView):
+    """
+    Update an existing ExampleItem.
+    """
+    class InputSerializer(serializers.Serializer):
+        title = serializers.CharField(required=False, max_length=255)
+        description = serializers.CharField(required=False)
+        is_active = serializers.BooleanField(required=False)
+        start_date = serializers.DateField(required=False)
+        end_date = serializers.DateField(required=False)
+
+    class OutputSerializer(serializers.Serializer):
+        id = serializers.IntegerField()
+        title = serializers.CharField()
+        is_active = serializers.BooleanField()
+
+    def post(self, request, item_id: int):
+        item = example_item_detail(item_id=item_id)
+        serializer = self.InputSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        updated_item = example_item_update(item=item, **serializer.validated_data)
+        data = self.OutputSerializer(updated_item).data
+
+        return Response(data, status=status.HTTP_200_OK)

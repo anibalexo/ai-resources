@@ -1,0 +1,16 @@
+from django.urls import path
+from .apis import (
+    ExampleItemCreateApi,
+    ExampleItemDetailApi,
+    ExampleItemListApi,
+    ExampleItemUpdateApi,
+)
+
+app_name = "example_items"
+
+urlpatterns = [
+    path("", ExampleItemListApi.as_view(), name="list"),
+    path("create/", ExampleItemCreateApi.as_view(), name="create"),
+    path("<int:item_id>/", ExampleItemDetailApi.as_view(), name="detail"),
+    path("<int:item_id>/update/", ExampleItemUpdateApi.as_view(), name="update"),
+]

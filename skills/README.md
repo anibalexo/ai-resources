@@ -31,6 +31,15 @@ Saving a skill here does not automatically install or activate it.
 - [Document features](document-features/SKILL.md): maintains usage guides, API references, and other affected documentation as features are added or changed, verifying claims against the implementation. Designed for Codex with repository access; uses existing documentation tooling when available.
 - [Django expert](django-expert/SKILL.md): provides architecture guidance, ORM optimization, DRF best practices, testing strategies, and security standards for Django applications.
 - [Django safe migration](django-safe-migration/SKILL.md): guides zero-downtime database migrations, safe column additions, backwards compatibility, and concurrent indexing in Django.
+- [Django styleguide](django-styleguide/SKILL.md): implements HackSoftware's Django Styleguide architecture separating business logic into Services (writes) and Selectors (reads), with thin DRF APIViews, inline serializers, BaseModel constraints, and layered testing.
+
+### Choosing between Django skills
+
+| Skill | Focus | Best for | Key architecture |
+| --- | --- | --- | --- |
+| [Django styleguide](django-styleguide/SKILL.md) | Service/Selector layer | Large apps, complex APIs, panel admins, background jobs | Thin models, pure functions with keyword-only arguments, lean `APIView` |
+| [Django expert](django-expert/SKILL.md) | Idiomatic / Standard Django | MVPs, rapid CRUD prototyping, Django Admin heavy apps | Fat models, custom managers, `ModelViewSet`, production checklists |
+| [Django safe migration](django-safe-migration/SKILL.md) | Safe DDL & DB migrations | All Django projects changing production databases | Zero-downtime, non-blocking constraints and concurrent indexes |
 
 ## Install in Codex
 

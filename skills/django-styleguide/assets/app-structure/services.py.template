@@ -1,0 +1,52 @@
+from datetime import date
+from django.db import transaction
+from .models import ExampleItem
+
+
+def example_item_create(
+    *,
+    title: str,
+    start_date: date,
+    end_date: date,
+    description: str = "",
+    is_active: bool = True,
+) -> ExampleItem:
+    """
+    Creates and validates an ExampleItem instance.
+    """
+    item = ExampleItem(
+        title=title,
+        description=description,
+        is_active=is_active,
+        start_date=start_date,
+        end_date=end_date,
+    )
+
+    item.full_clean()
+    item.save()
+
+    return item
+
+
+def example_item_update(
+    *,
+    item: ExampleItem,
+    **data,
+) -> ExampleItem:
+    """
+    Selectively updates an ExampleItem instance with validation.
+    """
+    allowed_fields = ["title", "description", "is_active", "start_date", "end_date"]
+    has_updated = False
+
+    with transaction.atomic():
+        for field in allowed_fields:
+            if field in data and getattr(item, field) != data[field]:
+                setattr(item, field, data[field])
+                has_updated = True
+
+        if has_updated:
+            item.full_clean()
+            item.save()
+
+    return item

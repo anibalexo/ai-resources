@@ -1,0 +1,26 @@
+from django.db.models import QuerySet
+from django.shortcuts import get_object_or_404
+from .models import ExampleItem
+
+
+def example_item_list(*, filters: dict | None = None) -> QuerySet[ExampleItem]:
+    """
+    Returns a QuerySet of ExampleItem with optional filtering.
+    """
+    filters = filters or {}
+    qs = ExampleItem.objects.all()
+
+    if "is_active" in filters and filters["is_active"] is not None:
+        qs = qs.filter(is_active=filters["is_active"])
+
+    if filters.get("search"):
+        qs = qs.filter(title__icontains=filters["search"])
+
+    return qs.order_by("-created_at")
+
+
+def example_item_detail(*, item_id: int) -> ExampleItem:
+    """
+    Retrieves a single ExampleItem by ID or raises 404.
+    """
+    return get_object_or_404(ExampleItem, id=item_id)
