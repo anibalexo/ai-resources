@@ -32,6 +32,7 @@ Saving a skill here does not automatically install or activate it.
 - [Django expert](django-expert/SKILL.md): provides architecture guidance, ORM optimization, DRF best practices, testing strategies, and security standards for Django applications.
 - [Django safe migration](django-safe-migration/SKILL.md): guides zero-downtime database migrations, safe column additions, backwards compatibility, and concurrent indexing in Django.
 - [Django styleguide](django-styleguide/SKILL.md): implements HackSoftware's Django Styleguide architecture separating business logic into Services (writes) and Selectors (reads), with thin DRF APIViews, inline serializers, BaseModel constraints, and layered testing.
+- [Grilling](grilling/SKILL.md): stress-tests plans, decisions, or ideas by relentlessly interviewing the user across a branching design tree until reaching a shared understanding.
 
 ### Choosing between Django skills
 
