@@ -22,6 +22,7 @@ Reusable prompts, skills, and workflows for specifying, planning, implementing, 
 | Apply Django architecture and ORM best practices | [Django expert](skills/django-expert/SKILL.md) |
 | Plan and execute safe zero-downtime migrations | [Django safe migration](skills/django-safe-migration/SKILL.md) |
 | Structure Django apps with services and selectors | [Django styleguide](skills/django-styleguide/SKILL.md) |
+| Stress-test plans, decisions, or ideas through questioning | [Grilling](skills/grilling/SKILL.md) |
 | Copy a short prompt for a focused task | [Prompt catalog](prompts/README.md) |
 
 ## Quick start
