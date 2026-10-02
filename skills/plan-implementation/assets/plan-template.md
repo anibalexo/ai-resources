@@ -38,6 +38,18 @@ Requirements: {{link_to_existing_specification_or_requirement_source}}
 | --- | --- | --- | --- | --- |
 | {{path_and_whether_existing_or_proposed}} | {{add_modify_or_remove}} | {{symbol_or_responsibility}} | {{behavior_change_and_reason}} | {{affected_contracts}} |
 
+### Architectural component breakdown
+
+<!-- When applicable (e.g. Service/Selector pattern or clean architecture),
+categorize the core symbols by architectural responsibility: -->
+
+- **Domain Services (Writes & Business Logic)**:
+  - `{{service_path_or_module}}`: `def {{service_function}}(*, {{args}}) -> {{return_type}}` — {{responsibility_validation_and_transaction_boundaries}}
+- **Selectors (Reads & Queries)**:
+  - `{{selector_path_or_module}}`: `def {{selector_function}}(*, {{args}}) -> {{return_type}}` — {{query_filters_and_eager_loading_prefetch}}
+- **Interface & Adapters (APIs / Tasks / CLI)**:
+  - `{{interface_path}}`: {{lean_view_inline_serializers_or_background_job_adapter}}
+
 ## Models and data
 
 <!-- If no schema changes are needed, state that and remove the table.
@@ -56,8 +68,8 @@ Otherwise include every affected attribute and the model's responsibility. -->
 
 {{ordered_steps_with_dependencies_affected_files_outcomes_and_acceptance_ids}}
 
-<!-- Keep design sequencing here. Create a separate tasks.md only when task
-breakdown is requested; execution status belongs in that document. -->
+<!-- Keep design sequencing here. Create a separate tasks.md (using tasks-template.md)
+only when task breakdown is requested; execution status belongs in that document. -->
 
 ## Verification
 

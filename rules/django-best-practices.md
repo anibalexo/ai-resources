@@ -20,9 +20,10 @@ Compatible with Codex, Claude Code, Cursor, GitHub Copilot, and Antigravity.
 - Use `bulk_create()`, `bulk_update()`, or `filter(id__in=...)` instead of iterating and saving individual records in loops.
 - Use `exists()` or `count()` when checking for presence or length instead of evaluating `len(queryset)` or `bool(queryset.first())`.
 
-### 2. Thin views and controllers (Service layer pattern)
-- Keep views, API views, and serializers thin. A view should only parse requests, authenticate, call a service function, and return an HTTP response.
-- Encapsulate business logic, calculations, third-party API interactions, and complex workflows in dedicated service modules (e.g., `services.py` or `domain/`).
+### 2. Thin views and controllers (Services & Selectors pattern)
+- Keep views, API views, and serializers thin. A view should only parse requests, authenticate, call a selector (for reading) or a service function (for writing), and return an HTTP response.
+- Encapsulate write operations, calculations, state mutations, and external API calls in dedicated domain service functions (`services.py` or `services/` directory). Use keyword-only arguments (`*`) for service functions.
+- Encapsulate all database queries and prefetching in dedicated selectors (`selectors.py` or `selectors/` directory). Never scatter queries across views, serializers, or background tasks.
 - Do not make HTTP or external API calls inside database transactions or model `save()` methods.
 
 ### 3. Safe database transactions
@@ -31,8 +32,9 @@ Compatible with Codex, Claude Code, Cursor, GitHub Copilot, and Antigravity.
 - Use `select_for_update()` inside `transaction.atomic()` when concurrent updates could create race conditions (e.g., balance deductions, inventory adjustments).
 
 ### 4. Serializer and validation standards
-- Perform data sanitization and format validation inside Serializers or Forms. Keep serializers focused on input validation and serialization/deserialization.
-- Do not place domain business logic inside serializers; delegate creation/update side effects to service functions.
+- Prefer inline serializers inside views to avoid sprawling generic serializers with unclear reuse.
+- Keep serializers strictly focused on input validation, formatting, and serialization/deserialization.
+- Do not place domain business logic or database writes inside serializers; delegate creation/update side effects to service functions.
 
 ### 5. Safe migrations
 - Never add a non-nullable field without a sensible `default` or `null=True` on large existing tables to avoid table locks.
@@ -40,26 +42,37 @@ Compatible with Codex, Claude Code, Cursor, GitHub Copilot, and Antigravity.
 
 ## Examples
 
-### Good (Optimized and layered)
+### Good (Optimized and layered with Services & Selectors)
 
 ```python
-# services.py
-from django.db import transaction
+# selectors.py
+from django.db.models import QuerySet
 from .models import Order
 
-def process_pending_orders(customer_id: int) -> list[Order]:
-    # Eager load related customer and items to avoid N+1 queries
-    orders = list(
+def order_pending_list(*, customer_id: int) -> QuerySet[Order]:
+    """Pure query function with eager loading to prevent N+1 queries."""
+    return (
         Order.objects.filter(customer_id=customer_id, status="pending")
         .select_related("customer")
         .prefetch_related("items__product")
     )
+
+
+# services.py
+from django.db import transaction
+from .models import Order
+from .selectors import order_pending_list
+
+def order_process_pending(*, customer_id: int) -> list[Order]:
+    """Pure mutation function with keyword-only arguments, atomic transaction, and bulk updates."""
+    orders = list(order_pending_list(customer_id=customer_id))
     if not orders:
         return []
 
     with transaction.atomic():
         for order in orders:
             order.mark_as_processed()
+
         Order.objects.bulk_update(orders, fields=["status", "processed_at"])
 
     return orders
@@ -68,18 +81,19 @@ def process_pending_orders(customer_id: int) -> list[Order]:
 ### Bad (N+1 queries and fat view)
 
 ```python
-# views.py - Anti-pattern: N+1 in view loop
+# views.py - Anti-pattern: N+1 queries, business logic, and writes in view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Order
 
 class ProcessOrdersView(APIView):
     def post(self, request, customer_id: int):
-        # Triggers a query for every order.customer in the template/loop!
+        # Triggers queries inside view and N+1 in loops!
         orders = Order.objects.filter(customer_id=customer_id, status="pending")
         for order in orders:
             print(order.customer.email)  # N+1 query!
             order.status = "processed"
             order.save()  # N individual updates!
+
         return Response({"status": "ok"})
 ```

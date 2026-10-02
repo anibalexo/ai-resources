@@ -70,7 +70,7 @@ For a new plan without an established project template, use [assets/plan-templat
 
 Respect the location specified by the user or repository. In the absence of another convention, use `docs/features/<feature>/plan.md`, with a stable kebab-case feature id. Read that folder's `spec.md` when present and link its acceptance criteria without duplicating the specification. Update an existing plan for the same scope instead of creating duplicates, preserving prior decisions that remain valid.
 
-If the scope includes task breakdown, save tasks in `docs/features/<feature>/tasks.md`, including acceptance criteria, affected files, dependencies, and verification for each task. Keep technical sequencing and decisions in `plan.md`; execution status belongs in `tasks.md`. Link created documents from `docs/README.md`. Create only necessary files. Do not move existing documentation unless adopting or migrating paths is part of the request.
+If the scope includes task breakdown, save tasks in `docs/features/<feature>/tasks.md` using [assets/tasks-template.md](assets/tasks-template.md), including acceptance criteria, affected files, dependencies, and verification for each task. Keep technical sequencing and decisions in `plan.md`; execution status belongs in `tasks.md`. Link created documents from `docs/README.md`. Create only necessary files. Do not move existing documentation unless adopting or migrating paths is part of the request.
 
 Organize the document using these sections, adjusting its length to the change:
 

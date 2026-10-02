@@ -11,5 +11,7 @@ Comprehensive guides covering each architectural area of the HackSoftware Django
 - [Exception Handling](exception-handling.md): Raising domain-specific `ApplicationError` exceptions and standardizing API error responses through custom DRF handlers.
 - [Testing Strategy](testing-strategy.md): Testing each layer in isolation (`tests/services/`, `tests/selectors/`, `tests/apis/`), and setting up factories.
 - [Celery Integration](celery-integration.md): Writing robust background tasks as thin wrappers calling domain services.
+- [Security Checklist](security-checklist.md): Comprehensive checklist covering OWASP Top 10 vulnerabilities, authentication, authorization, and sensitive data handling in Django.
+- [Production Deployment](production-deployment.md): Best practices for settings, WSGI/ASGI servers, static files, caching, and health checks for production environments.
 
 [Back to skill](../SKILL.md)
