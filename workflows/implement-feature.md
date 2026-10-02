@@ -11,8 +11,27 @@ Follow the target project's instructions and authorization. A request for a spec
 1. **Identify the feature.** Inspect the existing code, documentation, and pending changes. Reuse or choose a stable kebab-case id such as `order-history`. Locate its existing documents before creating new ones. Decompose only when independently testable capabilities justify separate specs.
 2. **Specify the behavior.** Use [Specify feature](../skills/specify-feature/SKILL.md). Save requirements and acceptance ids in `docs/features/<feature>/spec.md`. Resolve questions that block dependent work; keep unresolved proposals clearly marked.
 3. **Plan the implementation.** Use [Plan implementation](../skills/plan-implementation/SKILL.md). Save technical decisions, affected files and models, dependencies, risks, and checks in the same folder's `plan.md`. Link acceptance criteria from the spec.
-4. **Define tasks.** Save focused tasks in that folder's `tasks.md`, each with acceptance ids, files, dependencies, and verification. Confirm every acceptance criterion is covered. In Django projects, structure tasks explicitly around architectural layers following [Django styleguide](../skills/django-styleguide/SKILL.md): separate tasks for models/migrations ([Django safe migration](../skills/django-safe-migration/SKILL.md)), service functions (`services.py`), selector functions (`selectors.py`), and interface views/serializers (`apis.py`). Keep this separate from the design rationale in the plan.
-5. **Implement and verify.** Work in dependency order within scope. Use [Implement code](../skills/implement-code/SKILL.md) to apply early returns, readability, and maintainable structure. In Django projects, strictly enforce [Django styleguide](../skills/django-styleguide/SKILL.md): all database mutations, transactions, and side-effects MUST be written as service functions with keyword-only arguments (`*`) in `services.py`; all database queries MUST be isolated in `selectors.py`; API views MUST remain lean adapters using inline serializers without business logic. Apply [Django safe migration](../skills/django-safe-migration/SKILL.md) when creating, sequencing, and executing schema or data migrations. Use [Generate tests](../skills/generate-tests/SKILL.md) for relevant behavioral coverage and [Debug code](../skills/debug-code/SKILL.md) when failures need investigation. Use [Optimize performance](../skills/optimize-performance/SKILL.md) only when a performance objective requires it. Record actual verification results; do not mark failed or unexecuted checks as passed.
+4. **Define tasks.** Save focused tasks in that folder's `tasks.md` using [tasks-template.md](../skills/plan-implementation/assets/tasks-template.md), confirming every acceptance criterion is covered.
+   - For each task, document acceptance IDs, affected files, dependencies, and verification commands.
+   - In Django projects, structure tasks explicitly around architectural layers following [Django styleguide](../skills/django-styleguide/SKILL.md):
+     - **Models & Migrations**: Schema updates using [Django safe migration](../skills/django-safe-migration/SKILL.md).
+     - **Domain Services**: Business logic and mutation functions (`services.py`).
+     - **Selectors**: Query and read functions (`selectors.py`).
+     - **Interface**: Lean API views and inline serializers (`apis.py`).
+     - **Tests & Documentation**: Layered tests and documentation updates.
+   - Keep execution tracking separate from the design rationale in `plan.md`.
+5. **Implement and verify.** Work in dependency order within scope.
+   - **Clean Code**: Use [Implement code](../skills/implement-code/SKILL.md) to apply early returns (guard clauses), readability, and maintainable structure.
+   - **Django Architecture Enforcements**: In Django projects, strictly enforce [Django styleguide](../skills/django-styleguide/SKILL.md):
+     - **Mutations & Business Logic**: All database writes, transitions, transactions, and side-effects MUST be written as pure functions with keyword-only arguments (`*`) in `services.py`.
+     - **Queries & Reads**: All database queries MUST be isolated in `selectors.py` with appropriate eager loading (`select_related`, `prefetch_related`).
+     - **API Views & Serializers**: API views MUST remain lean adapters delegating directly to services/selectors, using inline serializers without business logic or overridden `save()`/`create()` methods.
+     - **Database Migrations**: Apply [Django safe migration](../skills/django-safe-migration/SKILL.md) for zero-downtime, non-blocking schema and data migrations.
+   - **Testing & Quality**:
+     - Use [Generate tests](../skills/generate-tests/SKILL.md) for relevant behavioral and layered coverage (`tests/services/`, `tests/selectors/`, `tests/apis/`).
+     - Use [Debug code](../skills/debug-code/SKILL.md) when failures require root cause investigation.
+     - Use [Optimize performance](../skills/optimize-performance/SKILL.md) only when a performance objective requires it.
+   - **Evidence & Truthfulness**: Record actual verification results; do not mark failed or unexecuted checks as passed.
 6. **Document the result.** Use [Document features](../skills/document-features/SKILL.md). Update `usage.md` when a dedicated guide is useful and update affected shared documentation. Link created documents from `docs/README.md`. Reconcile any changed requirements or technical decisions with the spec and plan.
 
 ## Completion and recovery

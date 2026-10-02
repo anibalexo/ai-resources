@@ -96,6 +96,8 @@ Explore the dedicated modules for detailed guidance, templates, and examples:
 - [Exception Handling](references/exception-handling.md): `ApplicationError` and uniform DRF error responses.
 - [Testing Strategy](references/testing-strategy.md): Layered tests (`tests/services/`, `tests/selectors/`, `tests/apis/`) and factories.
 - [Celery Integration](references/celery-integration.md): Background workers as interface adapters.
+- [Security Checklist](references/security-checklist.md): OWASP Top 10, authentication, authorization, and sensitive data protection.
+- [Production Deployment](references/production-deployment.md): Deployment checklist, WSGI/ASGI servers, caching, and hardening.
 
 ### Templates & Boilerplates (`assets/`)
 - [Application Structure Templates](assets/app-structure/README.md): Starter code for `models.py`, `services.py`, `selectors.py`, `apis.py`, and `urls.py`.

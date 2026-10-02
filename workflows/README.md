@@ -77,6 +77,9 @@ flowchart LR
 
     I1 --> I2 --> I3 --> I4
 
+    SK_TSK["📋 tasks-template<br/><i>(layered checklist)</i>"] --> I2
+    SK_SG_T["🛠️ django-styleguide<br/><i>(layer-based tasks)</i>"] -.->|Django projects| I2
+
     SK_CODE["🛠️ implement-code<br/><i>(clean code & guard clauses)</i>"] --> I3
     SK_TEST["🛠️ generate-tests<br/><i>(behavioral test coverage)</i>"] --> I3
     SK_DBG["🛠️ debug-code<br/><i>(investigate test failures)</i>"] --> I3
@@ -105,6 +108,7 @@ flowchart LR
 
     SK_B_DBG["🛠️ debug-code<br/><i>(root-cause analysis)</i>"] --> B2
     SK_B_TEST["🛠️ generate-tests<br/><i>(regression test)</i>"] --> B3
+    SK_B_SG["🛠️ django-styleguide<br/><i>(preserve layer boundaries)</i>"] -.->|Django projects| B4
     SK_B_DOC["🛠️ document-features<br/><i>(if behavior changed)</i>"] --> B5
 ```
 
@@ -119,7 +123,8 @@ flowchart LR
 | | 3. Technical plan | [Plan implementation](../skills/plan-implementation/SKILL.md) | Design technical approach, affected files, architecture, risks, and checks in `plan.md` |
 | | 3. Technical plan | [Django styleguide](../skills/django-styleguide/SKILL.md) | Apply Services (writes) and Selectors (reads) architecture in Django projects |
 | | 3. Technical plan | [Django safe migration](../skills/django-safe-migration/SKILL.md) | Plan zero-downtime database schema modifications and non-blocking constraints |
-| **Implement a feature** | 5. Implement & verify | [Implement code](../skills/implement-code/SKILL.md) | Apply clean code practices, guard clauses, early return, and maintainable structure |
+| **Implement a feature** | 4. Define tasks | [Django styleguide](../skills/django-styleguide/SKILL.md) | Structure tasks into architectural layers (Models, Services, Selectors, APIs) using tasks template |
+| | 5. Implement & verify | [Implement code](../skills/implement-code/SKILL.md) | Apply clean code practices, guard clauses, early return, and maintainable structure |
 | | 5. Implement & verify | [Django styleguide](../skills/django-styleguide/SKILL.md) | Implement business operations as services and queries as selectors in Django |
 | | 5. Implement & verify | [Django safe migration](../skills/django-safe-migration/SKILL.md) | Create, sequence, and verify safe database migrations without table locks |
 | | 5. Implement & verify | [Generate tests](../skills/generate-tests/SKILL.md) | Create meaningful unit and integration test coverage for implemented behavior |
@@ -128,6 +133,7 @@ flowchart LR
 | | 6. Document result | [Document features](../skills/document-features/SKILL.md) | Write usage guides in `usage.md` and keep shared project documentation up to date |
 | **Fix a bug** | 2. Reproduce & diagnose | [Debug code](../skills/debug-code/SKILL.md) | Trace reachable code path and isolate root cause before editing |
 | | 3. Regression test | [Generate tests](../skills/generate-tests/SKILL.md) | Write deterministic automated test that reproduces the defect and fails initially |
+| | 4. Correct the cause | [Django styleguide](../skills/django-styleguide/SKILL.md) | Preserve layer boundaries: fix logic in services and queries in selectors |
 | | 6. Update & deliver | [Document features](../skills/document-features/SKILL.md) | Update guides when defect resolution alters user-facing behavior or error handling |
 
 [Back to index](../README.md)

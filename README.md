@@ -19,7 +19,6 @@ Reusable prompts, skills, and workflows for specifying, planning, implementing, 
 | Investigate bugs and verify requested fixes | [Debug code](skills/debug-code/SKILL.md) |
 | Measure and optimize performance | [Optimize performance](skills/optimize-performance/SKILL.md) |
 | Update documentation for implemented features | [Document features](skills/document-features/SKILL.md) |
-| Apply Django architecture and ORM best practices | [Django expert](skills/django-expert/SKILL.md) |
 | Plan and execute safe zero-downtime migrations | [Django safe migration](skills/django-safe-migration/SKILL.md) |
 | Structure Django apps with services and selectors | [Django styleguide](skills/django-styleguide/SKILL.md) |
 | Stress-test plans, decisions, or ideas through questioning | [Grilling](skills/grilling/SKILL.md) |
