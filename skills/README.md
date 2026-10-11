@@ -37,7 +37,7 @@ Saving a skill here does not automatically install or activate it.
 
 | Skill | Focus | Best for | Key architecture |
 | --- | --- | --- | --- |
-| [Django styleguide](django-styleguide/SKILL.md) | Service/Selector layer | Large apps, complex APIs, panel admins, background jobs | Thin models, pure functions with keyword-only arguments, lean `APIView`, security and production checklists |
+| [Django styleguide](django-styleguide/SKILL.md) | Service/Selector layer | Any Django project (APIs, monoliths, dashboards, background jobs) across any Django version | Thin models, pure functions with keyword-only arguments, lean `APIView`, security and production checklists |
 | [Django safe migration](django-safe-migration/SKILL.md) | Safe DDL & DB migrations | All Django projects changing production databases | Zero-downtime, non-blocking constraints and concurrent indexes |
 
 ## Install in Codex
