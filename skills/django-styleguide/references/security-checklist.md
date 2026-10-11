@@ -308,9 +308,9 @@ pip list --outdated
 **In requirements.txt, pin versions:**
 
 ```
-Django==4.2.7  # Not Django>=4.0 (prevents auto-updates)
-psycopg2-binary==2.9.9
-redis==5.0.1
+Django==<version>  # Pin exact version (e.g. project target version) to prevent breaking changes
+psycopg2-binary==<version>
+redis==<version>
 ```
 
 **Rule**: Keep dependencies updated and monitor security advisories.

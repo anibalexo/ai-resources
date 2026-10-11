@@ -1,11 +1,16 @@
 ---
 name: django-styleguide
-description: Architecture guidance based on HackSoftware's Django Styleguide, structuring business logic into Services (writes) and Selectors (reads), thin DRF APIViews with inline serializers, BaseModel constraints, and layered testing.
+description: Universal architecture guidance based on HackSoftware's Django Styleguide, structuring business logic into Services (writes) and Selectors (reads), thin DRF APIViews with inline serializers, BaseModel constraints, and layered testing across any Django project and version.
 ---
 
 # Django Styleguide Skill
 
-This skill implements the architectural guidelines from [HackSoftware's Django Styleguide](https://github.com/HackSoftware/Django-Styleguide), promoting maintainable, scalable, and testable Django applications by cleanly separating domain logic from external interfaces.
+This skill implements the architectural guidelines from [HackSoftware's Django Styleguide](https://github.com/HackSoftware/Django-Styleguide), promoting maintainable, scalable, and testable Django applications by cleanly separating domain logic from external interfaces. It is completely general, project-agnostic, and version-agnostic, designed for use in any Django application across any supported Django release.
+
+## Universal & Version-Agnostic Scope
+
+- **Universal to Any Project**: Applies to any Django codebase regardless of domain, layout, or organization (APIs, monoliths, microservices, internal dashboards, or enterprise systems). It does not assume, reference, or depend on any specific proprietary project or repository.
+- **Version-Agnostic**: Core architectural patterns—pure functions for Services and Selectors, keyword-only arguments (`*`), `instance.full_clean()`, `transaction.atomic()`, thin `APIView` adapters, inline serializers, and layered test suites—are native, timeless Python/Django idioms compatible across all supported Django versions (3.2 LTS, 4.2 LTS, 5.x, and future versions).
 
 ## Core Philosophy
 
